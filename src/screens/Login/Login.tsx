@@ -25,7 +25,10 @@ export default class Login extends React.Component<Props> {
         <Image source={LOGO} style={styles.logo} resizeMode={"contain"} />
         <CustomTextInput icon={IC_EMAIL} placeholder={"Email"} />
         <CustomTextInput icon={IC_PASSWORD} placeholder={"Password"} secureTextEntry />
-        <CustomButton label={"Login"} onPress={() => Alert.alert("Lala")} />
+        <CustomButton
+          label={"Login"}
+          onPress={() => this.props.navigation.navigate("Home")}
+        />
         <Text
           style={styles.registerButton}
           onPress={() => this.props.navigation.navigate("Register")}
