@@ -1,5 +1,5 @@
-import React from "react"
-import { View, StyleSheet, Text, StatusBar, Image, Alert } from "react-native"
+import React, { Component } from "react"
+import { View, StyleSheet, Text, Image } from "react-native"
 import { NavigationStackScreenOptions, NavigationScreenProp } from "react-navigation"
 import metrics from "../../config/metrics"
 import CustomTextInput from "../../components/CustomTextInput"
@@ -13,7 +13,7 @@ interface Props {
   navigation: NavigationScreenProp<any, any>
 }
 
-export default class Login extends React.Component<Props> {
+export default class Register extends Component<Props> {
   static navigationOptions: NavigationStackScreenOptions = {
     header: null
   }
@@ -21,17 +21,18 @@ export default class Login extends React.Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle={"light-content"} />
         <Image source={LOGO} style={styles.logo} resizeMode={"contain"} />
         <CustomTextInput icon={IC_EMAIL} placeholder={"Email"} />
         <CustomTextInput icon={IC_PASSWORD} placeholder={"Password"} secureTextEntry />
-        <CustomButton label={"Login"} onPress={() => Alert.alert("Lala")} />
-        <Text
-          style={styles.registerButton}
-          onPress={() => this.props.navigation.navigate("Register")}
-        >
-          Register Here
-        </Text>
+        <CustomTextInput
+          icon={IC_PASSWORD}
+          placeholder={"Confirm Password"}
+          secureTextEntry
+        />
+        <CustomButton
+          label={"Register"}
+          onPress={() => this.props.navigation.goBack(null)}
+        />
       </View>
     )
   }
@@ -48,11 +49,5 @@ const styles = StyleSheet.create({
   logo: {
     width: metrics.DEVICE_WIDTH * 0.6,
     maxHeight: 100
-  },
-
-  registerButton: {
-    fontWeight: "bold",
-    color: "white",
-    marginTop: 20
   }
 })

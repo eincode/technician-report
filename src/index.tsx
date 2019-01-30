@@ -2,11 +2,13 @@ import React from "react"
 import { createStackNavigator, createAppContainer } from "react-navigation"
 import Login from "./screens/Login"
 import metrics from "./config/metrics"
+import Register from "./screens/Register"
 
 const RootNav = createAppContainer(
   createStackNavigator(
     {
-      Login: { screen: Login }
+      Login: { screen: Login },
+      Register: { screen: Register }
     },
     {
       defaultNavigationOptions: {
