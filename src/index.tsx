@@ -24,7 +24,8 @@ const RootNav = createAppContainer(
           backgroundColor: metrics.PRIMARY_COLOR
         },
         headerTintColor: "white"
-      }
+      },
+      headerLayoutPreset: "center"
     }
   )
 )

@@ -16,7 +16,7 @@ interface Props extends TextInputProps {
 export default (props: Props) => (
   <View style={styles.container}>
     <Image source={props.icon} style={styles.icon} resizeMode={"contain"} />
-    <TextInput {...props} style={{ flex: 1 }} />
+    <TextInput {...props} style={{ flex: 1 }} underlineColorAndroid={"transparent"} />
   </View>
 )
 
@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     borderColor: "grey",
     borderWidth: 0.3,
     flexDirection: "row",
-    padding: 10,
+    padding: 5,
+    paddingHorizontal: 10,
     alignItems: "center",
     backgroundColor: "white",
     marginBottom: 10
