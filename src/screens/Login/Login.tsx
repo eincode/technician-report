@@ -21,7 +21,6 @@ export default class Login extends React.Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle={"light-content"} />
         <Image source={LOGO} style={styles.logo} resizeMode={"contain"} />
         <CustomTextInput icon={IC_EMAIL} placeholder={"Email"} />
         <CustomTextInput icon={IC_PASSWORD} placeholder={"Password"} secureTextEntry />
@@ -31,7 +30,7 @@ export default class Login extends React.Component<Props> {
         />
         <Text
           style={styles.registerButton}
-          onPress={() => this.props.navigation.navigate("Register")}
+          onPress={() => this.props.navigation.navigate("Main")}
         >
           Register Here
         </Text>
