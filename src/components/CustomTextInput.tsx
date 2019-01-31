@@ -5,34 +5,47 @@ import {
   StyleSheet,
   TextInputProps,
   ImageSourcePropType,
-  Image
+  Image,
+  Text
 } from "react-native"
 import metrics from "../config/metrics"
 
 interface Props extends TextInputProps {
-  icon: ImageSourcePropType
+  icon?: ImageSourcePropType
+  label?: string
 }
 
 export default (props: Props) => (
   <View style={styles.container}>
-    <Image source={props.icon} style={styles.icon} resizeMode={"contain"} />
-    <TextInput {...props} style={{ flex: 1 }} underlineColorAndroid={"transparent"} />
+    {props.label ? (
+      <Text style={{ marginBottom: 5, color: "black" }}>{props.label}</Text>
+    ) : null}
+    <View style={styles.textInputContainer}>
+      {props.icon ? (
+        <Image source={props.icon} style={styles.icon} resizeMode={"contain"} />
+      ) : null}
+      <TextInput {...props} style={{ flex: 1 }} underlineColorAndroid={"transparent"} />
+    </View>
   </View>
 )
 
 const styles = StyleSheet.create({
   container: {
+    width: metrics.DEVICE_WIDTH * 0.8,
+    marginBottom: 10
+  },
+
+  textInputContainer: {
     height: 50,
     width: metrics.DEVICE_WIDTH * 0.8,
     borderRadius: 5,
     borderColor: "grey",
     borderWidth: 0.3,
-    flexDirection: "row",
     padding: 5,
     paddingHorizontal: 10,
     alignItems: "center",
     backgroundColor: "white",
-    marginBottom: 10
+    flexDirection: "row"
   },
 
   icon: {

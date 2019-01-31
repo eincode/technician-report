@@ -9,6 +9,7 @@ import metrics from "./config/metrics"
 import Register from "./screens/Register"
 import Home from "./screens/Home"
 import { View, StatusBar } from "react-native"
+import NewOrder from "./screens/Service Order/New Order"
 
 const MainNav = createStackNavigator(
   {
@@ -18,7 +19,8 @@ const MainNav = createStackNavigator(
         title: "Technician Pocket",
         headerLeft: null
       }
-    }
+    },
+    NewServiceOrder: { screen: NewOrder }
   },
   {
     defaultNavigationOptions: {

@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { View, StyleSheet, Text, Image, FlatList, SectionList } from "react-native"
 import FloatingActionButton from "../../../components/FloatingActionButton"
-import { NavigationTabScreenOptions } from "react-navigation"
+import { NavigationTabScreenOptions, NavigationScreenProp } from "react-navigation"
 import JobItem from "./JobItem"
 import metrics from "../../../config/metrics"
 
@@ -12,7 +12,11 @@ interface State {
   isJobsAvailable: boolean
 }
 
-export default class Jobs extends Component {
+interface Props {
+  navigation: NavigationScreenProp<any, any>
+}
+
+export default class Jobs extends Component<Props, State> {
   static navigationOptions: NavigationTabScreenOptions = {
     tabBarIcon: ({ focused }) => {
       switch (focused) {
@@ -37,7 +41,7 @@ export default class Jobs extends Component {
   }
 
   state = {
-    isJobsAvailable: false
+    isJobsAvailable: true
   }
 
   render() {
@@ -58,7 +62,8 @@ export default class Jobs extends Component {
                     width: metrics.DEVICE_WIDTH,
                     height: 30,
                     paddingLeft: 20,
-                    justifyContent: "center"
+                    justifyContent: "center",
+                    marginTop: 5
                   }}
                 >
                   <Text style={{ fontWeight: "bold", color: "black" }}>{title}</Text>
@@ -83,7 +88,7 @@ export default class Jobs extends Component {
         )}
         <FloatingActionButton
           onPress={() => {
-            this.setState({ isJobsAvailable: !this.state.isJobsAvailable })
+            this.props.navigation.navigate("NewServiceOrder")
           }}
         />
       </View>

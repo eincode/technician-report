@@ -30,7 +30,7 @@ export default class Login extends React.Component<Props> {
         />
         <Text
           style={styles.registerButton}
-          onPress={() => this.props.navigation.navigate("Main")}
+          onPress={() => this.props.navigation.navigate("Register")}
         >
           Register Here
         </Text>
