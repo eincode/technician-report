@@ -13,6 +13,7 @@ import metrics from "../../../config/metrics"
 import MultilineTextInput from "../../../components/MultilineTextInput"
 import CustomTextInput from "../../../components/CustomTextInput"
 import FormSectionHeader from "../../../components/FormSectionHeader"
+import CustomButton from "../../../components/CustomButton"
 
 interface Props {
   navigation: NavigationScreenProp<any, any>
@@ -128,6 +129,10 @@ export default class FOR extends Component<Props, State> {
           <MultilineTextInput label={"Description"} placeholder={"What did you do?"} />
           <CustomTextInput label={"Segment"} placeholder={"e.g. T/T"} />
           <CustomTextInput label={"OPR"} />
+          <CustomButton
+            label={"Submit Time Record"}
+            onPress={() => this.props.navigation.goBack()}
+          />
         </View>
       </View>
     )

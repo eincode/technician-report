@@ -4,6 +4,7 @@ import {
   createAppContainer,
   createSwitchNavigator
 } from "react-navigation"
+import SplashScreen from "react-native-splash-screen"
 import Login from "./screens/Login"
 import metrics from "./config/metrics"
 import Register from "./screens/Register"
@@ -48,6 +49,10 @@ const RootNav = createAppContainer(
 )
 
 export default class App extends React.Component {
+  componentDidMount() {
+    SplashScreen.hide()
+  }
+
   render() {
     return (
       <View style={{ flex: 1 }}>
