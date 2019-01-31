@@ -1,11 +1,15 @@
 import React, { Component } from "react"
 import { View, StyleSheet, Text, ScrollView } from "react-native"
-import { NavigationStackScreenOptions } from "react-navigation"
+import { NavigationStackScreenOptions, NavigationScreenProp } from "react-navigation"
 import CustomTextInput from "../../../components/CustomTextInput"
 import FormSectionHeader from "../../../components/FormSectionHeader"
 import CustomButton from "../../../components/CustomButton"
 
-export default class NewOrder extends Component {
+interface Props {
+  navigation: NavigationScreenProp<any, any>
+}
+
+export default class NewOrder extends Component<Props, any> {
   static navigationOptions: NavigationStackScreenOptions = {
     title: "New Service Order"
   }
@@ -31,7 +35,10 @@ export default class NewOrder extends Component {
         <CustomTextInput label={"Plant No."} placeholder={"e.g. 05"} />
         <CustomTextInput label={"Serial No."} placeholder={"e.g. XBA10212"} />
         <CustomTextInput label={"SMU"} placeholder={"e.g. 2743"} />
-        <CustomButton label={"Submit Service Order"} />
+        <CustomButton
+          label={"Submit Service Order"}
+          onPress={() => this.props.navigation.goBack(null)}
+        />
         <View style={{ marginBottom: 10 }} />
       </ScrollView>
     )

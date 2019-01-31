@@ -16,7 +16,7 @@ interface Props extends TouchableOpacityProps {
 }
 
 export default (props: Props) => (
-  <TouchableOpacity style={styles.container}>
+  <TouchableOpacity style={styles.container} {...props}>
     <Text style={{ color: "black", fontWeight: "bold", fontSize: 16, marginBottom: 5 }}>
       {props.customerName}
     </Text>

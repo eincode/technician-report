@@ -75,6 +75,7 @@ export default class Jobs extends Component<Props, State> {
                   customerName={item.customerName}
                   site={item.site}
                   jobOutline={item.jobOutline}
+                  onPress={() => this.props.navigation.navigate("FOR")}
                 />
               )}
               keyExtractor={item => item.soNumber}
