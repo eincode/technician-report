@@ -1,6 +1,4 @@
-import React, { Component } from "react"
-import { View, StyleSheet } from "react-native"
-import { NavigationStackScreenOptions, createBottomTabNavigator } from "react-navigation"
+import { createBottomTabNavigator } from "react-navigation"
 import Jobs from "./Jobs"
 import SAR from "./SAR"
 import metrics from "../../config/metrics"
