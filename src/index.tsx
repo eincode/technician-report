@@ -12,6 +12,8 @@ import Home from "./screens/Home"
 import { View, StatusBar } from "react-native"
 import NewOrder from "./screens/Service Order/New Order"
 import FOR from "./screens/Service Order/Field Operation Report"
+import Options from "./screens/Service Order/Options"
+import FORList from "./screens/Service Order/Field Operation Report/FORList"
 
 const MainNav = createStackNavigator(
   {
@@ -23,7 +25,9 @@ const MainNav = createStackNavigator(
       }
     },
     NewServiceOrder: { screen: NewOrder },
-    FOR: { screen: FOR }
+    FOR: { screen: FOR },
+    Options: { screen: Options },
+    FORList: { screen: FORList }
   },
   {
     defaultNavigationOptions: {
