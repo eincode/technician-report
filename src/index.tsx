@@ -1,19 +1,20 @@
-import React from "react"
+import React from "react";
 import {
   createStackNavigator,
   createAppContainer,
   createSwitchNavigator
-} from "react-navigation"
-import SplashScreen from "react-native-splash-screen"
-import Login from "./screens/Login"
-import metrics from "./config/metrics"
-import Register from "./screens/Register"
-import Home from "./screens/Home"
-import { View, StatusBar } from "react-native"
-import NewOrder from "./screens/Service Order/New Order"
-import FOR from "./screens/Service Order/Field Operation Report"
-import Options from "./screens/Service Order/Options"
-import FORList from "./screens/Service Order/Field Operation Report/FORList"
+} from "react-navigation";
+import SplashScreen from "react-native-splash-screen";
+import Login from "./screens/Login";
+import metrics from "./config/metrics";
+import Register from "./screens/Register";
+import Home from "./screens/Home";
+import { View, StatusBar } from "react-native";
+import NewOrder from "./screens/Service Order/New Order";
+import FOR from "./screens/Service Order/Field Operation Report";
+import Options from "./screens/Service Order/Options";
+import FORList from "./screens/Service Order/Field Operation Report/FORList";
+import ServiceReport from "./screens/Service Order/Service Report";
 
 const MainNav = createStackNavigator(
   {
@@ -27,7 +28,8 @@ const MainNav = createStackNavigator(
     NewServiceOrder: { screen: NewOrder },
     FOR: { screen: FOR },
     Options: { screen: Options },
-    FORList: { screen: FORList }
+    FORList: { screen: FORList },
+    ServiceReport: { screen: ServiceReport }
   },
   {
     defaultNavigationOptions: {
@@ -38,31 +40,34 @@ const MainNav = createStackNavigator(
     },
     headerLayoutPreset: "center"
   }
-)
+);
 
 const AuthNav = createStackNavigator({
   Login: { screen: Login },
   Register: { screen: Register }
-})
+});
 
 const RootNav = createAppContainer(
   createSwitchNavigator({
     Auth: { screen: AuthNav },
     Main: { screen: MainNav }
   })
-)
+);
 
 export default class App extends React.Component {
   componentDidMount() {
-    SplashScreen.hide()
+    SplashScreen.hide();
   }
 
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <StatusBar barStyle={"light-content"} backgroundColor={metrics.PRIMARY_COLOR} />
+        <StatusBar
+          barStyle={"light-content"}
+          backgroundColor={metrics.PRIMARY_COLOR}
+        />
         <RootNav />
       </View>
-    )
+    );
   }
 }
